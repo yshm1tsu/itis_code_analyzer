@@ -1,0 +1,12 @@
+{
+  "check_attributes_assignment_inside_init": {
+    "name": "Проверка атрибутов в __init__",
+    "values": "blank"
+  },
+  "check_lists_max_length": {
+    "name": "Проверка максимальной длины массива",
+    "values": {
+      "length": "Длина"
+    }
+  }
+}

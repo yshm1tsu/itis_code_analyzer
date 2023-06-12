@@ -1,0 +1,12 @@
+import json
+{% for import_name in import_names%}from utils.analyzer.analyzer_utils import {{ import_name }}
+{%  endfor %}
+from utils.ast_utils.tree_utils import get_objects
+results = {}
+def process_file(results, content, filename):
+    results[filename] = ""
+    objects = get_objects(content)
+    {% for key, value in functions.items() %}result = ({{ key }}(objects, {{ value }}))
+    if result:
+        results[filename] += f"{result}\n"
+    {% endfor %}

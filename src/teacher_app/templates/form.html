@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/teacher/form/" method="post">
+    {% csrf_token %}
+    {% for key, value in mapping.items %}
+    <fieldset>
+        <legend>{{key}}</legend>
+        <div>
+            <input id="choose" type="checkbox" value="Выбрать">
+            <label for="choose">Выбрать</label>
+            {% if value.values %}
+            <p>{{key}}</p>
+            {% for key_2 in value.values.keys %}
+            <p>
+                {{key_2}}</p>
+            <input type="text" name={{key}}>
+            {% endfor %}
+            {% else %}
+            <p>{{key}}</p>
+            {% endif %}
+        </div>
+    </fieldset>
+    {% endfor %}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
